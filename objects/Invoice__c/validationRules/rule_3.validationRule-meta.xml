@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>rule_3</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(ISBLANK( Submitted_Date__c ),(ISPICKVAL(Status__c, &quot;Submitted&quot;)))</errorConditionFormula>
+    <errorMessage>The instructor should not be able to change the status to submitted unless they have provided a submitted date</errorMessage>
+</ValidationRule>

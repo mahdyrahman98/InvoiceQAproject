@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Mileage</fullName>
+    <active>true</active>
+    <label>Mileage</label>
+    <picklistValues>
+        <picklist>Course_Title__c</picklist>
+        <values>
+            <fullName>ADX201 - Admin Essentials for new Admins</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ADX211 - Admin Essentials for Experienced Admins</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>ADX231 - Introduction to Apex %26 Object Orientated Programming</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DEX403 - Declarative Development for Platform App Builders</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>DEX450 - Programmatic Development with Apex %26 Visualforce</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>

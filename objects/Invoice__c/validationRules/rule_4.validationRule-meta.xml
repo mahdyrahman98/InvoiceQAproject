@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>rule_4</fullName>
+    <active>true</active>
+    <errorConditionFormula>AND(ISBLANK(Paid_Date__c),(ISPICKVAL(Status__c, &quot;Paid&quot;)))</errorConditionFormula>
+    <errorMessage>Instructor should not be able to change status to paid unless paid date is provided</errorMessage>
+</ValidationRule>

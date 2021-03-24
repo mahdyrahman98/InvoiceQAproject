@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cost_per_mile__c</fullName>
+    <description>The cost per mile for your journey (leave as 0 if other expense)</description>
+    <externalId>false</externalId>
+    <inlineHelpText>The cost per mile for your journey (leave blank if other expense)</inlineHelpText>
+    <label>Cost per mile</label>
+    <precision>7</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackTrending>false</trackTrending>
+    <type>Currency</type>
+</CustomField>

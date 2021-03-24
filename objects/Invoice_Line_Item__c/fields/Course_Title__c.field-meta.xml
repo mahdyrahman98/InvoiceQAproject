@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Course_Title__c</fullName>
+    <externalId>false</externalId>
+    <label>Course Title</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>ADX201 - Admin Essentials for new Admins</fullName>
+                <default>false</default>
+                <label>ADX201 - Admin Essentials for new Admins</label>
+            </value>
+            <value>
+                <fullName>ADX211 - Admin Essentials for Experienced Admins</fullName>
+                <default>false</default>
+                <label>ADX211 - Admin Essentials for Experienced Admins</label>
+            </value>
+            <value>
+                <fullName>DEX403 - Declarative Development for Platform App Builders</fullName>
+                <default>false</default>
+                <label>DEX403 - Declarative Development for Platform App Builders</label>
+            </value>
+            <value>
+                <fullName>ADX231 - Introduction to Apex &amp; Object Orientated Programming</fullName>
+                <default>false</default>
+                <label>ADX231 - Introduction to Apex &amp; Object Orientated Programming</label>
+            </value>
+            <value>
+                <fullName>DEX450 - Programmatic Development with Apex &amp; Visualforce</fullName>
+                <default>false</default>
+                <label>DEX450 - Programmatic Development with Apex &amp; Visualforce</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
