@@ -21,11 +21,13 @@ if(trigger.isAfter) {
         CourseTriggerHandler.shareCourse(trigger.new);
         CourseTriggerHandler.shareEvent(trigger.new, trigger.old, trigger.oldMap);
         CourseTriggerHandler.sendEmail(trigger.new);
+        
      
     }
     else if(trigger.isUpdate) {
         CourseTriggerHandler.shareEvent(trigger.new, trigger.old, trigger.oldMap);
         CourseTriggerHandler.sendEmail(trigger.new);
+        CourseTriggerHandler.createServiceInvoice(trigger.new);
     }
     else if(trigger.isDelete){
         courseTriggerHandler.shareEvent(trigger.new, trigger.old, trigger.oldMap);

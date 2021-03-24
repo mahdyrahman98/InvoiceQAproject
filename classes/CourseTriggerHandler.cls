@@ -47,7 +47,7 @@ public static void shareEvent(List<Opportunity> courses, List<Opportunity> oldCo
         
                 courseCancelled.add(opportunity);
              }
-            else{
+            else if(opportunity.stageName != 'Completed'){
 
              courseUpdate.add(opportunity);
             
@@ -147,40 +147,57 @@ insert Events;
 
 
             }
-            else {
+            else if(course.StageName == 'Scheduled') {
 
 
             String body = 'Dear: ' + Course.Instructor__r.name + ', <br> You have a course of type: ' + Course.Name + '. Starting on ' + course.Start_Date__c + '.';
             toAdresses.add(Course.Instructor__r.Email);
             email.setToAddresses(toAdresses);
-            email.setSubject('Schedulled');
+            email.setSubject('Scheduled');
             email.setHtmlBody(body);
             emails.add(email);
             }
         }
+        if(emails.size()>0){
         Messaging.sendEmail(emails, false);
+        }
     }
  
 
 
-// public static void createService(){
+ public static void createServiceInvoice(List<Opportunity> serviceInvoices ){
 
-//     //instatiate list of courses 
-//     List<Invoice__c> serviceInvoice = new List<Opportunity>();
-
+//     //instatiate list of courses
+    list<Invoice__c> invoicesToInsert = new List<Invoice__c>(); 
+    List<Invoice_Line_Item__c> invoiceLinesToInsert = new List<Invoice_Line_Item__c>();
+    Id serviceLineRecTypeId = Schema.SObjectType.Invoice_Line_Item__c.getRecordTypeInfosByName().get('Services').getRecordTypeId();
+    Id serviceRecTypeId = Schema.SObjectType.Invoice__c.getRecordTypeInfosByName().get('Service Invoice').getRecordTypeId();
 //     // when course status = completed. make an if statement stating StageName = completed
-//     for(Opportunity course : serviceInvoice){
-//     if(course.stageName == 'completed'){
-        
-//     }
+    for(Opportunity course : serviceInvoices){
+        if(course.StageName == 'Completed'){
+            Invoice__c newInv = new Invoice__c();
+            newInv.Status__c= 'Draft';
+            newInv.Invoice_Date__c= Date.today();
+            newInv.Courses__c= course.Id;
+            newInv.RecordTypeId = serviceRecTypeId;
 
-//     //service invoice should be created
+            invoicesToInsert.add(newInv);
+        }
+    }
+    insert invoicesToInsert;
 
 
-
-
-
-// }
-
-// }
+//     for(Invoice__c inv : invoicesToInsert)
+//         integer duration = inv.Courses__r.duration__c;
+//         for(integer i = 0 ; i < duration ; i++){
+//             invoice_line_item__c newline = new invoice_line_item__c();
+//             newline.recordtypeId = serviceLineRecTypeId;
+//             newline.Date__c = inv.courses__r.Start_Date__c.addDays(i);
+//             newline.A__c = '50';
+//             newline.Invoice__c = inv.Invoice__r.name;
+//         }
+//    }
+//     insert invoiceLinesToInsert;
+    
+}
 }
