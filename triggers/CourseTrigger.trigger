@@ -21,6 +21,7 @@ if(trigger.isAfter) {
         CourseTriggerHandler.shareCourse(trigger.new);
         CourseTriggerHandler.shareEvent(trigger.new, trigger.old, trigger.oldMap);
         CourseTriggerHandler.sendEmail(trigger.new);
+        CourseTriggerHandler.generateInv(trigger.new);
         
      
     }

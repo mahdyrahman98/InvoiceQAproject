@@ -25,8 +25,7 @@ public with sharing class CourseTriggerHandler {
     insert opportunitiesToShare;
 }
 
-
-public static void shareEvent(List<Opportunity> courses, List<Opportunity> oldCourses, Map<Id,Opportunity> oldMap){
+    public static void shareEvent(List<Opportunity> courses, List<Opportunity> oldCourses, Map<Id,Opportunity> oldMap){
   
     List<Event> Events = new List<Event>();
   
@@ -165,7 +164,7 @@ insert Events;
  
 
 
- public static void createServiceInvoice(List<Opportunity> serviceInvoices ){
+    public static void createServiceInvoice(List<Opportunity> serviceInvoices ){
 
 //     //instatiate list of courses
     list<Invoice__c> invoicesToInsert = new List<Invoice__c>(); 
@@ -187,17 +186,63 @@ insert Events;
     insert invoicesToInsert;
 
 
-//     for(Invoice__c inv : invoicesToInsert)
-//         integer duration = inv.Courses__r.duration__c;
-//         for(integer i = 0 ; i < duration ; i++){
-//             invoice_line_item__c newline = new invoice_line_item__c();
-//             newline.recordtypeId = serviceLineRecTypeId;
-//             newline.Date__c = inv.courses__r.Start_Date__c.addDays(i);
-//             newline.A__c = '50';
-//             newline.Invoice__c = inv.Invoice__r.name;
-//         }
-//    }
-//     insert invoiceLinesToInsert;
+    for(Invoice__c inv : invoicesToInsert)
+        integer duration = inv.Courses__r.duration__c;
+        for(integer i = 0 ; i < duration ; i++){
+            invoice_line_item__c newline = new invoice_line_item__c();
+            newline.recordtypeId = serviceLineRecTypeId;
+            newline.Date__c = inv.courses__r.Start_Date__c.addDays(i);
+            newline.A__c = '50';
+            newline.Invoice__c = inv.Invoice__r.name;
+
+            invoiceLinesToInsert.add(newline);
+        }
+   }
+    insert invoiceLinesToInsert;
     
+    }
+
+    public static void generateInv(List<Invoice__c> invAuto ){
+    //Create  service invoice list and expense invoice list
+    List<Invoice__c> servInvList = new List<Invoice__c>();
+    List<Invoice__c> expInvList = new List<Invoice__c>();
+
+    //get service invoice record type and expense invoice record type
+    Id serviceRecTypeId = Schema.SObjectType.Invoice__c.getRecordTypeInfosByName().get('Service Invoice').getRecordTypeId();
+    Id expenseRecTypeId = Schema.SObjectType.Invoice__c.getRecordTypeInfosByName().get('Expense Invoice').getRecordTypeId();
+
+    //Create Autonumber variable that goes up by +1 everytime it has been added
+
+    integer autoNumber = 
+    //for every invoice, if the recordtpye = service 
+    //then create invoice with an invoice id of SERINV-{****}. and add to the service invoice list
+    //else create expense invoice with invoice Id=EXPINV-{****} and add to expense invoice list
+    for(Invoice__c invoices : intAuto){
+        if(invoice__c.serviceRecTypeId){
+            Invoice__c serInv = new Invoice__c();
+            servInv.Name = 'SERINV-{0000}'
+
+            servInvList.add(servInv);
+        }
+       
+
+    }
+
+    insert servInvList;
+     for(Invoice__c invoice: intAuto){
+         if(invoice__c.expenseRecTypeId){
+             invoice__c expInv = new Invoice__c();
+             expInv.Name = 'EXPINV-{0000}'
+
+             expInvList.add(expInv);
+         }
+     }
+     insert expInvList
+
+
+    }
+
+    
+ 
 }
-}
+
