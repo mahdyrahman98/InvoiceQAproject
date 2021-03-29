@@ -5,7 +5,7 @@
         <tbody>
         <tr style="height: 40px;">
         <td style="width: 116.667px; height: 40px;">
-        <h3>Invoice Number</h3>
+        <h3>Invoice__c.Name</h3>
         </td>
         </tr>
         <tr style="height: 29.4792px;">
@@ -18,7 +18,7 @@
         <tbody>
         <tr style="height: 42.6667px;">
         <td style="width: 133px; height: 42.6667px;">
-        <h3>&nbsp;Date</h3>
+        <h3>&nbsp;Invoice__c.Date__c</h3>
         </td>
         <td style="width: 240.667px; height: 42.6667px;">
         <h3>&nbsp;Category</h3>
