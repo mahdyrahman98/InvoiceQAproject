@@ -31,8 +31,9 @@ public with sharing class EventTriggerHandler {
     }
     if(courseInsert.size()>0){
     
-        Event calendarEvent = new Event();
+        
         for(Opportunity opportunity : courseInsert){
+        Event calendarEvent = new Event();    
         calendarEvent.Subject = 'Course';
         calendarEvent.StartDateTime = opportunity.Start_Date__c;
         calendarEvent.EndDateTime = opportunity.CloseDate;
